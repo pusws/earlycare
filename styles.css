@@ -1,0 +1,361 @@
+/* ========================================
+   早癌筛查循证医学科普指南 - Styles
+   ======================================== */
+
+/* --- Base --- */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    font-family: "Noto Sans SC", system-ui, sans-serif;
+    background-color: #fafaf9;
+    color: #1e293b;
+}
+
+::selection {
+    background-color: #ccfbf1;
+    color: #134e4a;
+}
+
+/* --- Prose Custom (converted from @apply) --- */
+.prose-custom h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #e7e5e4;
+}
+
+.prose-custom h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.prose-custom h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.prose-custom p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #0f172a;
+    margin-bottom: 1rem;
+}
+
+.prose-custom ul {
+    margin-bottom: 1.5rem;
+}
+
+.prose-custom ul li + li {
+    margin-top: 0.5rem;
+}
+
+.prose-custom ul li {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #0f172a;
+    padding-left: 0.5rem;
+}
+
+.prose-custom strong {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+/* --- Nav Link Active --- */
+.nav-link.active {
+    color: #0f766e;
+    font-weight: 600;
+    background-color: #f0fdfa;
+    border-right: 2px solid #0d9488;
+}
+
+/* --- Desktop nav link --- */
+.nav-link {
+    transition: background-color 0.15s, color 0.15s;
+}
+
+/* ========================================
+   Mobile Responsive Optimizations
+   ======================================== */
+
+/* --- Mobile table → card layout --- */
+@media (max-width: 767px) {
+    /* Responsive table cards for "不推荐普筛" and "遗传性肿瘤" tables */
+    .table-responsive-cards {
+        display: block;
+    }
+
+    .table-responsive-cards thead {
+        display: none;
+    }
+
+    .table-responsive-cards tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .table-responsive-cards tbody tr {
+        display: block;
+        background: #fff;
+        border: 1px solid #e7e5e4;
+        border-radius: 0.75rem;
+        padding: 1rem;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    }
+
+    .table-responsive-cards tbody tr.bg-warm-50 {
+        background: #fff;
+    }
+
+    .table-responsive-cards tbody td {
+        display: flex;
+        flex-direction: column;
+        padding: 0.25rem 0;
+    }
+
+    .table-responsive-cards tbody td::before {
+        content: attr(data-label);
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #78716c;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.125rem;
+    }
+
+    .table-responsive-cards tbody td + td {
+        padding-top: 0.5rem;
+        border-top: 1px dashed #e7e5e4;
+    }
+
+    /* Hero section mobile optimization */
+    .hero-section {
+        padding: 3rem 1.25rem;
+    }
+
+    .hero-section h1 {
+        font-size: 1.75rem !important;
+        line-height: 1.3 !important;
+    }
+
+    .hero-section .hero-subtitle {
+        font-size: 1rem !important;
+    }
+
+    .hero-badges {
+        flex-direction: column;
+        gap: 0.5rem !important;
+    }
+
+    .hero-badges > div {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* HCC four-step chain: stack vertically on small mobile */
+    .hcc-steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+
+    /* Summary grid: single column on mobile */
+    .summary-screening-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Better mobile padding */
+    .prose-custom {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .prose-custom h2 {
+        font-size: 1.375rem;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .prose-custom h3 {
+        font-size: 1.125rem;
+    }
+
+    /* Card inner padding reduce on mobile */
+    .card-mobile-compact {
+        padding: 1.25rem !important;
+    }
+
+    /* Final disclaimer mobile */
+    .disclaimer-final {
+        padding: 1.5rem !important;
+    }
+
+    /* Bottom disclaimer text */
+    .disclaimer-final p {
+        font-size: 0.875rem;
+    }
+
+    /* Back to top: position away from edges */
+    #backToTop {
+        bottom: 1rem;
+        right: 1rem;
+        width: 2.75rem;
+        height: 2.75rem;
+    }
+
+    /* Mobile nav link touch targets */
+    #mobileNav .nav-link {
+        padding: 0.75rem 1rem;
+        font-size: 0.9375rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    #mobileNav .nav-link + div .nav-link {
+        padding: 0.5rem 1rem 0.5rem 1.5rem;
+        min-height: 40px;
+    }
+
+    /* Mobile header fixed with safe area */
+    .mobile-header {
+        padding-top: env(safe-area-inset-top, 0px);
+    }
+
+    /* Tables that stay as tables on mobile */
+    .table-scroll-mobile {
+        margin-left: -0.5rem;
+        margin-right: -0.5rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .table-scroll-mobile table {
+        min-width: 600px;
+    }
+
+    /* Prevention cards grid */
+    .prevention-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Four questions grid */
+    .questions-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Small mobile (<= 374px) */
+@media (max-width: 374px) {
+    .hero-section h1 {
+        font-size: 1.5rem !important;
+    }
+
+    .hero-badges > div {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8125rem;
+    }
+
+    .hcc-steps-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.375rem;
+    }
+
+    .hcc-steps-grid > div {
+        padding: 0.625rem;
+    }
+}
+
+/* Tablet optimization (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .hero-section {
+        padding: 5rem 2rem;
+    }
+
+    .hero-section h1 {
+        font-size: 2.75rem !important;
+    }
+}
+
+/* Desktop (>= 1024px) */
+@media (min-width: 1024px) {
+    .hero-section h1 {
+        font-size: 3.5rem !important;
+    }
+
+    .hero-section .hero-subtitle {
+        font-size: 1.25rem !important;
+    }
+
+    .prose-custom h2 {
+        font-size: 1.875rem;
+    }
+
+    .prose-custom h3 {
+        font-size: 1.5rem;
+    }
+
+    .prose-custom p,
+    .prose-custom ul li {
+        font-size: 1.125rem;
+    }
+
+    .prevention-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .questions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .summary-screening-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* --- Animation for back-to-top --- */
+#backToTop {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* --- Mobile menu animation --- */
+#mobileMenu .absolute {
+    transition: transform 0.3s ease;
+}
+
+/* --- Print styles --- */
+@media print {
+    .mobile-header,
+    #mobileMenu,
+    aside,
+    #backToTop {
+        display: none !important;
+    }
+
+    main {
+        margin-left: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    .prose-custom {
+        max-width: 100%;
+    }
+
+    body {
+        background: #fff;
+        color: #000;
+    }
+}

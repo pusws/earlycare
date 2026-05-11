@@ -17,7 +17,9 @@
 | 文件 | 说明 |
 |---|---|
 | `早癌筛查循证医学科普指南.md` | 完整 Markdown 文档，包含所有证据引用与详细说明 |
-| `index.html` | 基于 HTML + Tailwind CSS 的单页科普网站，可直接浏览器打开 |
+| `index.html` | 网站页面结构（HTML） |
+| `styles.css` | 自定义样式与移动端响应式优化 |
+| `script.js` | 导航构建、滚动监听、移动端菜单等交互逻辑 |
 
 ## 在线预览
 
@@ -25,9 +27,16 @@
 
 ## 技术栈
 
-- HTML5
-- [Tailwind CSS](https://tailwindcss.com/)（CDN 方式引入）
+- HTML5 + CSS3 + JavaScript
+- [Tailwind CSS](https://tailwindcss.com/)（CDN 方式引入，仅用于工具类）
 - [Noto Sans SC](https://fonts.google.com/noto/specimen/Noto+Sans+SC) + [Playfair Display](https://fonts.google.com/specimen/Playfair+Display) 字体
+
+## 响应式设计
+
+- **桌面端**（≥768px）：固定侧边栏导航 + 主内容区，双栏/四栏网格布局
+- **移动端**（<768px）：顶部导航栏 + 侧滑菜单，表格自动转为卡片布局，触摸友好的导航链接（最小 44px 触摸区域）
+- **超小屏**（≤374px）：进一步缩减间距与字号
+- **打印**：自动隐藏导航，正文全宽输出
 
 ## 免责声明
 
