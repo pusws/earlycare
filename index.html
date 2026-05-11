@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>早癌筛查循证医学科普指南（2026版）</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans SC"', 'system-ui', 'sans-serif'],
+                        display: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        },
+                        warm: {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            200: '#e7e5e4',
+                            300: '#d6d3d1',
+                        },
+                        ink: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            html {
+                scroll-behavior: smooth;
+                scroll-padding-top: 80px;
+            }
+            body {
+                font-family: "Noto Sans SC", system-ui, sans-serif;
+                background-color: #fafaf9;
+                color: #1e293b;
+            }
+            ::selection {
+                background-color: #ccfbf1;
+                color: #134e4a;
+            }
+        }
+        @layer components {
+            .prose-custom h2 {
+                @apply text-2xl md:text-3xl font-bold text-ink-900 mt-16 mb-6 pb-3 border-b border-warm-200;
+            }
+            .prose-custom h3 {
+                @apply text-xl md:text-2xl font-semibold text-ink-800 mt-10 mb-4;
+            }
+            .prose-custom h4 {
+                @apply text-lg font-semibold text-ink-800 mt-6 mb-3;
+            }
+            .prose-custom p {
+                @apply text-base md:text-lg leading-relaxed text-ink-900 mb-4;
+            }
+            .prose-custom ul {
+                @apply space-y-2 mb-6;
+            }
+            .prose-custom ul li {
+                @apply text-base md:text-lg leading-relaxed text-ink-900 pl-2;
+            }
+            .prose-custom strong {
+                @apply font-semibold text-ink-900;
+            }
+            .nav-link.active {
+                @apply text-brand-700 font-semibold bg-brand-50 border-r-2 border-brand-600;
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Mobile Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-warm-50/95 backdrop-blur-md border-b border-warm-200 md:hidden">
+        <div class="flex items-center justify-between px-4 py-3">
+            <h1 class="text-lg font-bold text-ink-900 truncate">早癌筛查科普指南</h1>
+            <button id="menuBtn" class="p-2 rounded-lg hover:bg-warm-200 transition-colors" aria-label="打开菜单">
+                <svg class="w-6 h-6 text-ink-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="fixed inset-0 z-40 bg-ink-950/50 backdrop-blur-sm hidden md:hidden">
+        <div class="absolute right-0 top-0 h-full w-72 bg-warm-50 shadow-2xl overflow-y-auto">
+            <div class="p-4">
+                <button id="closeMenuBtn"
+                    class="absolute top-3 right-3 p-2 rounded-lg hover:bg-warm-200 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <h2 class="text-sm font-bold text-stone-500 uppercase tracking-wider mb-4 pt-1">目录</h2>
+                <nav class="space-y-1" id="mobileNav"></nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex min-h-screen">
+        <!-- Desktop Sidebar -->
+        <aside
+            class="hidden md:block w-72 lg:w-80 fixed left-0 top-0 h-screen bg-warm-50 border-r border-warm-200 overflow-y-auto z-30">
+            <div class="p-6 lg:p-8">
+                <div class="mb-8">
+                    <div class="text-xs font-bold text-brand-600 uppercase tracking-widest mb-1">Evidence-Based Medicine
+                    </div>
+                    <h1 class="text-xl lg:text-2xl font-bold text-ink-900 leading-tight">早癌筛查循证医学科普指南</h1>
+                    <p class="text-sm text-stone-600 mt-2">2026 最新版</p>
+                </div>
+                <nav class="space-y-1" id="desktopNav"></nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 md:ml-72 lg:ml-80 pt-16 md:pt-0">
+            <!-- Hero -->
+            <section
+                class="relative bg-gradient-to-br from-brand-900 via-brand-800 to-ink-900 text-white overflow-hidden">
+                <div class="absolute inset-0 opacity-10">
+                    <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5" />
+                        </pattern>
+                        <rect width="100" height="100" fill="url(#grid)" />
+                    </svg>
+                </div>
+                <div class="relative max-w-4xl mx-auto px-6 py-20 md:py-28 lg:py-36">
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-sm text-white font-medium mb-6">
+                        <span class="w-2 h-2 rounded-full bg-brand-300 animate-pulse"></span>
+                        截至 2026 年 5 月国际最新证据
+                    </div>
+                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 tracking-tight">
+                        早癌筛查<br>
+                        <span class="text-brand-200">循证医学科普指南</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-white max-w-2xl leading-relaxed mb-8">
+                        基于 WHO、USPSTF、ACS、NCCN 等国际权威组织最新指南，用证据说话，理性看待癌症筛查的获益与风险。
+                    </p>
+                    <div class="flex flex-wrap gap-4 text-sm">
+                        <div
+                            class="px-4 py-2.5 rounded-lg bg-white/20 backdrop-blur-sm border border-white/25 font-medium">
+                            <span class="text-brand-200 font-bold">6</span> 项高级别推荐筛查
+                        </div>
+                        <div
+                            class="px-4 py-2.5 rounded-lg bg-white/20 backdrop-blur-sm border border-white/25 font-medium">
+                            <span class="text-brand-200 font-bold">8+</span> 项不推荐普筛项目
+                        </div>
+                        <div
+                            class="px-4 py-2.5 rounded-lg bg-white/20 backdrop-blur-sm border border-white/25 font-medium">
+                            <span class="text-brand-200 font-bold">9</span> 大一级预防措施
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Disclaimer -->
+            <section class="bg-amber-50 border-b border-amber-100">
+                <div class="max-w-4xl mx-auto px-6 py-5">
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-amber-600 mt-0.5 shrink-0" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                        <p class="text-sm text-amber-800 leading-relaxed">
+                            <strong>免责声明：</strong>本文为基于循证医学的健康教育内容，不能替代专业医生的面对面诊断、治疗或个体化建议。所有筛查决策应由您与具备资质的医疗专业人员在"共同决策（SDM）"框架下制定。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="max-w-4xl mx-auto px-6 py-12 md:py-16 prose-custom">
+
+                <!-- Section 1 -->
+                <section id="sec-core" class="scroll-mt-24">
+                    <h2>一、核心概念与循证逻辑</h2>
+                    <p><strong>筛查（Screening）</strong> =
+                        在<strong>无症状、表面健康</strong>人群中检查，以求在可治愈阶段发现病灶。它不同于<strong>诊断（症状者）</strong>与<strong>监测（已患病或高危者）</strong>。
+                    </p>
+                    <p>一项筛查项目"值得做"必须满足 WHO/Wilson-Jungner 标准，关键是：</p>
+                    <div class="bg-brand-50 border-l-4 border-brand-500 rounded-r-lg p-5 my-6">
+                        <p class="mb-0 italic text-ink-800">必须有 RCT
+                            或高质量证据证明筛查可降低<strong>疾病特异性死亡率</strong>或<strong>晚期癌症发生率</strong>——仅"早期发现"或"5
+                            年生存率提升""<strong>不足以证明筛查有效</strong>（领先时间偏倚）。</p>
+                    </div>
+                    <p>国际权威组织（USPSTF、ACS、NCCN、ESMO、NICE、AASLD 等）只对获益证据明确大于危害的项目给予 <strong>A/B 级</strong>推荐。</p>
+                </section>
+
+                <!-- Section 2 -->
+                <section id="sec-risks" class="scroll-mt-24">
+                    <h2>二、筛查的获益、风险与偏倚</h2>
+                    <h3>主要获益</h3>
+                    <ul class="list-disc pl-5">
+                        <li>降低疾病特异性死亡率；</li>
+                        <li>减少晚期肿瘤发生（如 HPV 筛查降低浸润性宫颈癌发生率）；</li>
+                        <li>部分筛查可同时实现一级预防（结肠镜切除腺瘤）。</li>
+                    </ul>
+
+                    <h3>主要风险与偏倚</h3>
+                    <div class="grid gap-3 my-6">
+                        <div
+                            class="bg-white rounded-xl border border-warm-200 p-5 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center shrink-0">
+                                    <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-base font-bold text-ink-900 mb-1">过度诊断</h4>
+                                    <p class="text-sm text-ink-800 mb-0">检出永远不会进展或致死的"惰性肿瘤"（如部分低危前列腺癌、甲状腺微小乳头状癌）</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-xl border border-warm-200 p-5 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center shrink-0">
+                                    <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-base font-bold text-ink-900 mb-1">过度治疗</h4>
+                                    <p class="text-sm text-ink-800 mb-0">因过度诊断导致不必要的手术、放化疗及其并发症</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-xl border border-warm-200 p-5 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-10 h-10 rounded-lg bg-yellow-50 flex items-center justify-center shrink-0">
+                                    <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-base font-bold text-ink-900 mb-1">假阳性 / 假阴性</h4>
+                                    <p class="text-sm text-ink-800 mb-0">假阳性引发焦虑、活检并发症、医疗成本上升；假阴性给予虚假安全感，延误诊断</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-xl border border-warm-200 p-5 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center shrink-0">
+                                    <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-base font-bold text-ink-900 mb-1">领先时间偏倚 & 病程长短偏倚</h4>
+                                    <p class="text-sm text-ink-800 mb-0">
+                                        提早诊断仅延长"知道患病"的时间，不一定真正延寿；筛查更易发现进展缓慢的肿瘤，使生存数据虚高</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 3 -->
+                <section id="sec-recommended" class="scroll-mt-24">
+                    <h2>三、推荐筛查项目（高级别证据）</h2>
+                    <p class="text-sm text-stone-500 mb-8">所有推荐均以截至 <strong>2026 年 5 月</strong> 的最新国际证据与指南为准。</p>
+
+                    <!-- Lung -->
+                    <div class="bg-white rounded-2xl border border-warm-200 shadow-sm overflow-hidden mb-6"
+                        id="sec-lung">
+                        <div class="p-6 md:p-8">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-ink-900 m-0">3.1 肺癌（Low-Dose CT）</h3>
+                                    <span
+                                        class="text-xs font-semibold text-brand-600 bg-brand-50 px-2 py-0.5 rounded">USPSTF
+                                        B 级推荐</span>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="bg-ink-50 rounded-lg p-4">
+                                    <h4 class="text-sm font-bold text-ink-900 uppercase tracking-wider mb-2">关键证据</h4>
+                                    <ul class="space-y-2 text-sm text-ink-900 list-disc pl-4 mb-0">
+                                        <li><strong>NLST 研究（NEJM 2011, N=53,454）</strong>：LDCT 较胸片使肺癌死亡率降低 <strong
+                                                class="text-brand-700">20%</strong></li>
+                                        <li><strong>NELSON 研究（NEJM 2020）</strong>：男性 10 年肺癌死亡率降低 <strong
+                                                class="text-brand-700">24%</strong>，女性获益更大</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="text-base font-semibold text-ink-800 mb-2">现行推荐</h4>
+                                    <div class="grid md:grid-cols-2 gap-3">
+                                        <div class="border border-warm-200 rounded-lg p-4">
+                                            <div class="text-xs font-semibold text-stone-500 uppercase mb-1">USPSTF 2021
+                                            </div>
+                                            <p class="text-sm mb-0">年龄 <strong>50–80 岁</strong>、吸烟史 ≥ <strong>20
+                                                    包·年</strong>、当前吸烟者或<strong>戒烟 &lt; 15 年</strong>者，每年 LDCT 一次</p>
+                                        </div>
+                                        <div class="border border-warm-200 rounded-lg p-4">
+                                            <div class="text-xs font-semibold text-stone-500 uppercase mb-1">ACS 2023
+                                            </div>
+                                            <p class="text-sm mb-0">推荐 <strong>50–80 岁、≥20
+                                                    包·年</strong>的当前或既往吸烟者————<strong>无 15 年戒烟年限上限</strong></p>
+                                        </div>
+                                    </div>
+                                    <p class="text-xs text-stone-500 mt-2 italic">*注：两者均为有效推荐，如患者符合 ACS 标准但超出 USPSTF
+                                        标准，建议结合个体风险与医患共同决策</p>
+                                </div>
+                                <div class="bg-red-50 border border-red-100 rounded-lg p-4">
+                                    <h4 class="text-sm font-bold text-red-800 mb-1">风险提醒</h4>
+                                    <p class="text-sm text-red-700/80 mb-0">假阳性率约 12–20%；累积辐射约 1.5 mSv/次；可能引发不必要的活检与并发症
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Colorectal -->
+                    <div class="bg-white rounded-2xl border border-warm-200 shadow-sm overflow-hidden mb-6"
+                        id="sec-colorectal">
+                        <div class="p-6 md:p-8">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-ink-900 m-0">3.2 结直肠癌</h3>
+                                    <span class="text-xs font-semibold text-brand-600 bg-brand-50 px-2 py-0.5 rounded">含
+                                        2024 年 FDA 批准 Shield 血检</span>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <p class="text-sm"><strong>45–75 岁</strong> 普通风险成人均应筛查（USPSTF & ACS 已将起始年龄从 50 岁下调至 45
+                                    岁）；76–85 岁基于个体状况共同决策；&gt;85 岁不推荐。</p>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-sm">
+                                        <thead>
+                                            <tr class="border-b-2 border-warm-200">
+                                                <th class="text-left py-2 px-3 font-semibold text-ink-900">方法</th>
+                                                <th class="text-left py-2 px-3 font-semibold text-ink-900">间隔</th>
+                                                <th class="text-left py-2 px-3 font-semibold text-ink-900">备注</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-warm-200">
+                                            <tr class="bg-brand-50/50">
+                                                <td class="py-3 px-3 font-medium text-brand-800">结肠镜</td>
+                                                <td class="py-3 px-3">每 10 年</td>
+                                                <td class="py-3 px-3 text-ink-900">金标准，可同时切除腺瘤</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-3 px-3 font-medium text-ink-800">粪便免疫化学试验（FIT）</td>
+                                                <td class="py-3 px-3">每年</td>
+                                                <td class="py-3 px-3 text-ink-900">高效、低价、依从性好</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-3 px-3 font-medium text-ink-800">FIT-DNA（Cologuard）</td>
+                                                <td class="py-3 px-3">每 1–3 年</td>
+                                                <td class="py-3 px-3 text-ink-900">灵敏度高于 FIT</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-3 px-3 font-medium text-ink-800">CT 结肠成像</td>
+                                                <td class="py-3 px-3">每 5 年</td>
+                                                <td class="py-3 px-3 text-ink-900">仍需肠道准备</td>
+                                            </tr>
+                                            <tr class="bg-amber-50/50">
+                                                <td class="py-3 px-3 font-medium text-amber-800">血液 ctDNA（Shield）</td>
+                                                <td class="py-3 px-3">每 3 年</td>
+                                                <td class="py-3 px-3 text-ink-900">进展期腺瘤检出率仅
+                                                    13%，%，<strong>仅次选</strong>；阳性必须做结肠镜</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="bg-amber-50 border border-amber-100 rounded-lg p-4">
+                                    <p class="text-sm text-amber-800 mb-0"><strong>⚠
+                                            重要：</strong>任何阳性的非内镜检查都必须以结肠镜确诊——否则筛查无效。Shield 等血检不应替代 FIT 或结肠镜成为首选。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Breast -->
+                    <div class="bg-white rounded-2xl border border-warm-200 shadow-sm overflow-hidden mb-6"
+                        id="sec-breast">
+                        <div class="p-6 md:p-8">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-ink-900 m-0">3.3 乳腺癌（USPSTF 2024 重大更新）</h3>
+                                    <span
+                                        class="text-xs font-semibold text-brand-600 bg-brand-50 px-2 py-0.5 rounded">起始年龄下调至
+                                        40 岁</span>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="bg-brand-50 border border-brand-100 rounded-lg p-5">
+                                    <div class="flex items-start gap-3">
+                                        <div
+                                            class="w-8 h-8 rounded-full bg-brand-500 text-white flex items-center justify-center text-sm font-bold shrink-0">
+                                            B</div>
+                                        <div>
+                                            <h4 class="text-base font-bold text-brand-900 mb-1">USPSTF 2024 推荐</h4>
+                                            <p class="text-sm text-ink-800 mb-2"><strong>40–74 岁</strong> 所有平均风险女性
+                                                <strong>每 2 年</strong> 钼靶筛查（起始年龄从 50 岁下调至 40 岁）；≥75 岁证据不足（I 级）。
+                                            </p>
+                                            <p class="text-xs text-stone-500 italic mb-0">*注：USPSTF 2024 更新的主要依据为 CISNET
+                                                协同建模研究，而非新的 RCT 直接证据</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="border border-warm-200 rounded-lg p-4">
+                                        <h4 class="text-sm font-bold text-ink-900 mb-2">致密乳腺</h4>
+                                        <p class="text-sm text-ink-900 mb-0">FDA 自 2024 年 9 月强制要求报告乳腺密度。致密乳腺者可个体化讨论补充
+                                            MRI 或超声——但目前<strong>缺乏 RCT 证据</strong>证明补充影像能进一步降低死亡率。</p>
+                                    </div>
+                                    <div class="border border-warm-200 rounded-lg p-4">
+                                        <h4 class="text-sm font-bold text-ink-900 mb-2">高危人群</h4>
+                                        <p class="text-sm text-ink-900 mb-0">终生风险≥20% 或携带 BRCA1/2 等变异者，通常 25–30 岁起
+                                            <strong>MRI + 钼靶</strong>联合，每年一次。
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="bg-red-50 border border-red-100 rounded-lg p-4">
+                                    <p class="text-sm text-red-700 mb-0">
+                                        <strong>不推荐</strong>单独临床乳房检查（CBE）或乳房自检（BSE）作为筛查——多项 RCT 未显示死亡率获益，反增活检率。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cervical -->
+                    <div class="bg-white rounded-2xl border border-warm-200 shadow-sm overflow-hidden mb-6"
+                        id="sec-cervical">
+                        <div class="p-6 md:p-8">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-ink-900 m-0">3.4 宫颈癌（2026 HRSA 更新 + 自采样 HPV）</h3>
+                                    <span class="text-xs font-semibold text-brand-600 bg-brand-50 px-2 py-0.5 rounded">A
+                                        级推荐</span>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <p class="text-sm">USPSTF 于 2018 年发布 A 级推荐，2024 年发布更新草案拟维持 A 级，截至 2026 年 5
+                                    月正式最终推荐尚未发布；当前临床仍沿用 2018 年推荐。</p>
+                                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                                    <div class="bg-ink-50 rounded-lg p-4 text-center">
+                                        <div class="text-2xl font-bold text-ink-900">&lt;21 岁</div>
+                                        <div class="text-sm text-ink-900">不推荐筛查</div>
+                                    </div>
+                                    <div class="bg-ink-50 rounded-lg p-4 text-center">
+                                        <div class="text-2xl font-bold text-ink-900">21–29 岁</div>
+                                        <div class="text-sm text-ink-900">每 3 年细胞学（Pap）</div>
+                                    </div>
+                                    <div class="bg-brand-50 border border-brand-200 rounded-lg p-4 text-center">
+                                        <div class="text-2xl font-bold text-brand-800">30–65 岁</div>
+                                        <div class="text-sm text-brand-700">每 5 年 hrHPV 初筛（首选）</div>
+                                    </div>
+                                </div>
+                                <div class="bg-brand-50 border border-brand-100 rounded-lg p-4">
+                                    <p class="text-sm text-brand-800 mb-0"><strong>新增可选项（HRSA 2026）：</strong>患者自采样 hrHPV
+                                        检测应作为可选项提供，以提升可及性。2024 年 5 月 FDA 批准首个临床自采样 hrHPV 检测。</p>
+                                </div>
+                                <div class="border border-warm-200 rounded-lg p-4">
+                                    <p class="text-sm text-ink-900 mb-0"><strong>HPV 疫苗</strong>：9–26 岁常规接种；27–45
+                                        岁基于共同决策接种；；<strong>不替代筛查</strong>。WHO 2022 起允许部分国家采用单剂量方案。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prostate -->
+                    <div class="bg-white rounded-2xl border border-warm-200 shadow-sm overflow-hidden mb-6"
+                        id="sec-prostate">
+                        <div class="p-6 md:p-8">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-ink-900 m-0">3.5 前列腺癌</h3>
+                                    <span
+                                        class="text-xs font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">最具争议，必须共同决策</span>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="bg-ink-50 rounded-lg p-4">
+                                    <h4 class="text-sm font-bold text-ink-900 uppercase tracking-wider mb-2">关键证据</h4>
+                                    <ul class="space-y-2 text-sm text-ink-900 list-disc pl-4 mb-0">
+                                        <li><strong>ERSPC 21 年随访</strong>：PSA 筛查使前列腺癌死亡率降低 <strong
+                                                class="text-brand-700">20%</strong>（RR ≈ 0.80）</li>
+                                        <li>过度诊断率估计 <strong>20–40%</strong>（不同研究差异较大）</li>
+                                        <li>现代 mpMRI + 靶向活检已大幅减少不必要活检</li>
+                                    </ul>
+                                </div>
+                                <div class="grid md:grid-cols-2 gap-3">
+                                    <div class="border border-warm-200 rounded-lg p-4">
+                                        <div class="text-xs font-semibold text-stone-500 uppercase mb-1">USPSTF 2018（C
+                                            级）
+                                        </div>
+                                        <p class="text-sm mb-0"><strong>55–69 岁</strong>：基于个体偏好与共同决策决定是否 PSA
+                                            筛查；；<strong>≥70 岁</strong>：不推荐（D 级）</p>
+                                    </div>
+                                    <div class="border border-warm-200 rounded-lg p-4">
+                                        <div class="text-xs font-semibold text-stone-500 uppercase mb-1">EAU 2024 / NCCN
+                                            2025</div>
+                                        <p class="text-sm mb-0">建议 <strong>PSA 阳性后行 mpMRI 再决定是否活检</strong>（PI-RADS ≥3
+                                            才活检），可显著减少过度诊断</p>
+                                    </div>
+                                </div>
+                                <div class="bg-green-50 border border-green-100 rounded-lg p-4">
+                                    <p class="text-sm text-green-800 mb-0"><strong>主动监测（Active
+                                            Surveillance）</strong>已成为低危前列腺癌的首选管理，避免过度治疗。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- HCC -->
+                    <div class="bg-white rounded-2xl border border-warm-200 shadow-sm overflow-hidden mb-6"
+                        id="sec-hcc">
+                        <div class="p-6 md:p-8">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-ink-900 m-0">3.6 肝细胞癌（高危人群）</h3>
+                                    <span class="text-xs font-semibold text-brand-600 bg-brand-50 px-2 py-0.5 rounded">与
+                                        HBV 全程管理一体化</span>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="bg-brand-50 border border-brand-200 rounded-lg p-5">
+                                    <h4 class="text-sm font-bold text-brand-900 uppercase tracking-wider mb-3">四步循证链条
+                                    </h4>
+                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                        <div
+                                            class="bg-white rounded-lg p-3 text-center border border-brand-200 shadow-sm">
+                                            <div class="text-2xl font-bold text-brand-700 mb-1">1</div>
+                                            <div class="text-sm text-ink-900 font-medium">发现 HBV</div>
+                                        </div>
+                                        <div
+                                            class="bg-white rounded-lg p-3 text-center border border-brand-200 shadow-sm">
+                                            <div class="text-2xl font-bold text-brand-700 mb-1">2</div>
+                                            <div class="text-sm text-ink-900 font-medium">接种疫苗</div>
+                                        </div>
+                                        <div
+                                            class="bg-white rounded-lg p-3 text-center border border-brand-200 shadow-sm">
+                                            <div class="text-2xl font-bold text-brand-700 mb-1">3</div>
+                                            <div class="text-sm text-ink-900 font-medium">抗病毒治疗</div>
+                                        </div>
+                                        <div
+                                            class="bg-white rounded-lg p-3 text-center border border-brand-200 shadow-sm">
+                                            <div class="text-2xl font-bold text-brand-700 mb-1">4</div>
+                                            <div class="text-sm text-ink-900 font-medium">终身影像监测</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-sm">
+                                        <thead>
+                                            <tr class="border-b-2 border-warm-200">
+                                                <th class="text-left py-2 px-3 font-semibold text-ink-900">监测人群</th>
+                                                <th class="text-left py-2 px-3 font-semibold text-ink-900">方法</th>
+                                                <th class="text-left py-2 px-3 font-semibold text-ink-900">间隔</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-warm-200">
+                                            <tr>
+                                                <td class="py-3 px-3">任何病因的肝硬化</td>
+                                                <td class="py-3 px-3 font-medium">腹部超声 ± AFP</td>
+                                                <td class="py-3 px-3">每 6 个月</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-3 px-3">亚洲裔男性 HBV ≥40 岁 / 女性 ≥50 岁</td>
+                                                <td class="py-3 px-3 font-medium">腹部超声 ± AFP</td>
+                                                <td class="py-3 px-3">每 6 个月</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-3 px-3">非洲裔 HBV ≥20 岁；HCC 家族史</td>
+                                                <td class="py-3 px-3 font-medium">腹部超声 ± AFP</td>
+                                                <td class="py-3 px-3">每 6 个月</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-3 px-3">HBV + HDV/HIV 共感染</td>
+                                                <td class="py-3 px-3 font-medium">腹部超声 ± AFP</td>
+                                                <td class="py-3 px-3">每 6 个月</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="bg-red-50 border border-red-100 rounded-lg p-4">
+                                    <p class="text-sm text-red-700 mb-0"><strong>绝不</strong>用 CT 或 PET-CT 作为常规监测工具。普通人群行
+                                        AFP 普筛无获益且假阳性率高，，<strong>不推荐</strong>。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 4 -->
+                <section id="sec-not-recommended" class="scroll-mt-24">
+                    <h2>四、证据有限或不推荐普筛的项目</h2>
+                    <div class="overflow-x-auto -mx-2 px-2">
+                        <table class="w-full text-sm min-w-[700px]">
+                            <thead>
+                                <tr class="border-b-2 border-ink-900">
+                                    <th class="text-left py-3 px-3 font-bold text-ink-900">项目</th>
+                                    <th class="text-left py-3 px-3 font-bold text-ink-900">现状（2026）</th>
+                                    <th class="text-left py-3 px-3 font-bold text-ink-900">备注</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-warm-200">
+                                <tr>
+                                    <td class="py-3 px-3 font-medium">胃癌</td>
+                                    <td class="py-3 px-3 text-ink-900">全球普筛证据不足</td>
+                                    <td class="py-3 px-3 text-ink-900">高危人群个体化内镜随访；；<strong>根除幽门螺杆菌</strong>是一级预防</td>
+                                </tr>
+                                <tr class="bg-warm-50">
+                                    <td class="py-3 px-3 font-medium">胰腺癌</td>
+                                    <td class="py-3 px-3 text-red-700 font-semibold">USPSTF 2019 D 级：不推荐</td>
+                                    <td class="py-3 px-3 text-ink-900">仅遗传高危建议 MRI/EUS 监测</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-3 font-medium">卵巢癌</td>
+                                    <td class="py-3 px-3 text-red-700 font-semibold">USPSTF 2018 D 级：不推荐</td>
+                                    <td class="py-3 px-3 text-ink-900">CA-125 + 超声不降低死亡率</td>
+                                </tr>
+                                <tr class="bg-warm-50">
+                                    <td class="py-3 px-3 font-medium">甲状腺癌</td>
+                                    <td class="py-3 px-3 text-red-700 font-semibold">USPSTF 2017 D 级：不推荐</td>
+                                    <td class="py-3 px-3 text-ink-900">导致大量过度诊断</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-3 font-medium">MCED（Galleri 等）</td>
+                                    <td class="py-3 px-3 text-red-700 font-semibold">未被任何国际权威指南推荐</td>
+                                    <td class="py-3 px-3 text-ink-900">NHS-Galleri 未显示晚期癌症诊断显著下降</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="bg-red-50 border border-red-200 rounded-xl p-6 mt-6">
+                        <h3 class="text-lg font-bold text-red-900 mt-0">关于 MCED 的 2025–2026 最新证据</h3>
+                        <ul class="space-y-2 text-sm text-ink-900 list-disc pl-4 mb-0">
+                            <li><strong>PATHFINDER 2</strong>：癌症检出率提升约 7 倍，CSO 准确率约 92%</li>
+                            <li><strong>NHS-Galleri 首批结果（BMJ 2024）</strong>：<strong
+                                    class="text-red-700">并未显示晚期癌症诊断的统计学显著下降</strong>——这是 MCED 领域最重要的"现实降温"信号</li>
+                            <li>USPSTF / NCCN / ESMO 截至 2026 年 5 月均<strong>未推荐</strong> MCED 用于人群筛查</li>
+                        </ul>
+                        <p class="text-sm text-ink-900 mt-4 mb-0 italic">商业广告（如 2026 年 Super Bowl
+                            推广）与科学证据存在显著落差，公众应警惕过早采用未被指南背书的产品。</p>
+                    </div>
+                </section>
+
+                <!-- Section 5 -->
+                <section id="sec-genetic" class="scroll-mt-24">
+                    <h2>五、遗传性肿瘤综合征筛查</h2>
+                    <p class="text-sm text-stone-500 mb-4">约 5–10% 癌症与遗传性致病变异相关，按 NCCN Genetic/Familial High-Risk
+                        Assessment（2025 版）进行。</p>
+                    <div class="overflow-x-auto -mx-2 px-2">
+                        <table class="w-full text-sm min-w-[700px]">
+                            <thead>
+                                <tr class="border-b-2 border-ink-900">
+                                    <th class="text-left py-3 px-3 font-bold text-ink-900">综合征</th>
+                                    <th class="text-left py-3 px-3 font-bold text-ink-900">主要基因</th>
+                                    <th class="text-left py-3 px-3 font-bold text-ink-900">关键筛查</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-warm-200">
+                                <tr class="bg-warm-50">
+                                    <td class="py-3 px-3 font-medium">HBOC（遗传性乳腺-卵巢癌）</td>
+                                    <td class="py-3 px-3">BRCA1/2、PALB2</td>
+                                    <td class="py-3 px-3">25–30 岁起乳腺 MRI+钼靶；35–40 岁讨论预防性切除</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-3 font-medium">Lynch 综合征</td>
+                                    <td class="py-3 px-3">MLH1、MSH2 等</td>
+                                    <td class="py-3 px-3">20–25 岁起每 1–2 年结肠镜；；<strong>每日阿司匹林</strong>显著降低 CRC 风险</td>
+                                </tr>
+                                <tr class="bg-warm-50">
+                                    <td class="py-3 px-3 font-medium">FAP</td>
+                                    <td class="py-3 px-3">APC</td>
+                                    <td class="py-3 px-3">10–15 岁起每年乙状结肠镜；最终结肠切除</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-3 font-medium">Li-Fraumeni</td>
+                                    <td class="py-3 px-3">TP53</td>
+                                    <td class="py-3 px-3">全身 MRI、乳腺 MRI 等多模态高频随访</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="bg-brand-50 border border-brand-100 rounded-lg p-5 mt-6">
+                        <h4 class="text-sm font-bold text-brand-900 mb-2">建议接受遗传咨询与基因检测的情况</h4>
+                        <ul class="grid sm:grid-cols-2 gap-2 text-sm text-ink-800 list-disc pl-4 mb-0">
+                            <li>50 岁前确诊肿瘤</li>
+                            <li>多发原发肿瘤</li>
+                            <li>同一家族多名近亲患同类肿瘤</li>
+                            <li>罕见肿瘤（男性乳腺癌、卵巢癌等）</li>
+                            <li>三阴性乳腺癌 ≤60 岁</li>
+                            <li>已知家族携带致病变异</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Section 6 -->
+                <section id="sec-prevention" class="scroll-mt-24">
+                    <h2>六、一级预防：比筛查更重要</h2>
+                    <p class="mb-6"><strong>全球癌症负担的 30–50% 可通过一级预防避免</strong>（WHO；IARC GLOBOCAN 2024）。</p>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="bg-white rounded-xl border border-warm-200 p-5 shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center mb-3">
+                                <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                                </svg>
+                            </div>
+                            <h4 class="text-base font-bold text-ink-900 mb-1">戒烟、远离二手烟</h4>
+                            <p class="text-sm text-ink-900 mb-0">吸烟与至少 16 种癌症明确相关（IARC Group 1）</p>
+                        </div>
+                        <div class="bg-white rounded-xl border border-warm-200 p-5 shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center mb-3">
+                                <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <h4 class="text-base font-bold text-ink-900 mb-1">限制酒精</h4>
+                            <p class="text-sm text-ink-900 mb-0">任何剂量饮酒均与癌症风险相关；WHO 立场：饮酒"无安全剂量"</p>
+                        </div>
+                        <div class="bg-white rounded-xl border border-warm-200 p-5 shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center mb-3">
+                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                </svg>
+                            </div>
+                            <h4 class="text-base font-bold text-ink-900 mb-1">健康体重与运动</h4>
+                            <p class="text-sm text-ink-900 mb-0">每周 ≥150 min 中等强度运动（ACS/WHO）</p>
+                        </div>
+                        <div class="bg-white rounded-xl border border-warm-200 p-5 shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mb-3">
+                                <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                                </svg>
+                            </div>
+                            <h4 class="text-base font-bold text-ink-900 mb-1">疫苗接种</h4>
+                            <p class="text-sm text-ink-900 mb-0">HPV 疫苗预防约 90% 宫颈癌；HBV 疫苗降低肝细胞癌</p>
+                        </div>
+                        <div class="bg-white rounded-xl border border-warm-200 p-5 shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-yellow-50 flex items-center justify-center mb-3">
+                                <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" />
+                                </svg>
+                            </div>
+                            <h4 class="text-base font-bold text-ink-900 mb-1">防晒</h4>
+                            <p class="text-sm text-ink-900 mb-0">避免晒伤、SPF≥30 防晒霜，降低黑色素瘤风险</p>
+                        </div>
+                        <div class="bg-white rounded-xl border border-warm-200 p-5 shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-purple-50 flex items-center justify-center mb-3">
+                                <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
+                            </div>
+                            <h4 class="text-base font-bold text-ink-900 mb-1">根除幽门螺杆菌</h4>
+                            <p class="text-sm text-ink-900 mb-0">高危人群胃癌一级预防（Maastricht VI 2022）</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 7 -->
+                <section id="sec-myths" class="scroll-mt-24">
+                    <h2>七、常见误区</h2>
+                    <div class="space-y-4">
+                        <div class="bg-red-50 border-l-4 border-red-400 rounded-r-lg p-5">
+                            <h4 class="text-base font-bold text-red-900 mb-2">❌ "肿瘤标志物能查早癌"</h4>
+                            <p class="text-sm text-red-800 mb-0">
+                                除特定指征外，，<strong>单纯抽血肿瘤标志物筛查</strong>未在普通人群中显示降低死亡率，假阳性率高，国际指南<strong>不推荐</strong>用于体检式普筛。
+                            </p>
+                        </div>
+                        <div class="bg-red-50 border-l-4 border-red-400 rounded-r-lg p-5">
+                            <h4 class="text-base font-bold text-red-900 mb-2">❌ "PET-CT 是早癌筛查的金标准"</h4>
+                            <p class="text-sm text-red-800 mb-0">PET-CT
+                                用于已知肿瘤的分期与评估，，<strong>不是健康人筛查工具</strong>：辐射高（10–25 mSv）、对小病灶不敏感。</p>
+                        </div>
+                        <div class="bg-red-50 border-l-4 border-red-400 rounded-r-lg p-5">
+                            <h4 class="text-base font-bold text-red-900 mb-2">❌ "MCED 血检可替代所有筛查"</h4>
+                            <p class="text-sm text-red-800 mb-0"><strong>NHS-Galleri 试验未显示晚期癌症诊断显著下降</strong>；FDA 尚未批准
+                                Galleri；MCED <strong>不能替代</strong>已有循证基础的器官特异性筛查。</p>
+                        </div>
+                        <div class="bg-red-50 border-l-4 border-red-400 rounded-r-lg p-5">
+                            <h4 class="text-base font-bold text-red-900 mb-2">❌ "做了筛查就万事大吉"</h4>
+                            <p class="text-sm text-red-800 mb-0">任何筛查都有间期癌。出现无法解释的体重下降、便血、咯血、持续咳嗽 &gt;3
+                                周等"红旗"症状，应<strong>立即就医</strong>。</p>
+                        </div>
+                        <div class="bg-red-50 border-l-4 border-red-400 rounded-r-lg p-5">
+                            <h4 class="text-base font-bold text-red-900 mb-2">❌ "5 年生存率提高就是筛查有效"</h4>
+                            <p class="text-sm text-red-800 mb-0">这是典型<strong>领先时间偏倚</strong>——必须看疾病特异性死亡率与全因死亡率。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 8 -->
+                <section id="sec-summary" class="scroll-mt-24">
+                    <h2>八、总结与个性化路径</h2>
+                    <div class="bg-white rounded-2xl border border-warm-200 shadow-sm p-6 md:p-8">
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center font-bold text-lg shrink-0">
+                                    1</div>
+                                <div>
+                                    <h4 class="text-base font-bold text-ink-900 mb-1">评估个人风险</h4>
+                                    <p class="text-sm text-ink-900 mb-0">年龄、性别、家族史、暴露史</p>
+                                </div>
+                            </div>
+                            <div class="ml-5 border-l-2 border-warm-200 pl-8">
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-lg shrink-0">
+                                        2</div>
+                                    <div>
+                                        <h4 class="text-base font-bold text-ink-900 mb-1">是否属于遗传性高危？</h4>
+                                        <p class="text-sm text-ink-900 mb-0">是 → 遗传咨询 + 个体化高强度监测；否 → 进入普通人群路径</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ml-5 border-l-2 border-warm-200 pl-8">
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center font-bold text-lg shrink-0">
+                                        3</div>
+                                    <div class="flex-1">
+                                        <h4 class="text-base font-bold text-ink-900 mb-2">按 2026 最新指南执行高级别推荐</h4>
+                                        <div class="grid sm:grid-cols-2 gap-2 text-sm">
+                                            <div class="bg-ink-50 rounded-lg p-3"><strong>肺：</strong>50–80 岁 / ≥20 包·年 →
+                                                LDCT</div>
+                                            <div class="bg-ink-50 rounded-lg p-3"><strong>结直肠：</strong>45–75 岁 → 结肠镜/FIT
+                                                优先</div>
+                                            <div class="bg-ink-50 rounded-lg p-3"><strong>乳腺：</strong>40–74 岁女性 → 钼靶 q2y
+                                            </div>
+                                            <div class="bg-ink-50 rounded-lg p-3"><strong>宫颈：</strong>30+ → hrHPV q5y
+                                            </div>
+                                            <div class="bg-ink-50 rounded-lg p-3"><strong>前列腺：</strong>50–69 岁 → 共同决策
+                                            </div>
+                                            <div class="bg-ink-50 rounded-lg p-3"><strong>HCC：</strong>高危 → 超声 ± AFP q6m
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ml-5 border-l-2 border-warm-200 pl-8">
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-green-100 text-green-700 flex items-center justify-center font-bold text-lg shrink-0">
+                                        4</div>
+                                    <div>
+                                        <h4 class="text-base font-bold text-ink-900 mb-1">同时坚持一级预防</h4>
+                                        <p class="text-sm text-ink-900 mb-0">戒烟、限酒、运动、HPV/HBV 疫苗、健康膳食、防晒、根除 Hp</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-50 border border-brand-100 rounded-xl p-6 mt-6">
+                        <h3 class="text-lg font-bold text-brand-900 mt-0 mb-4">接受筛查前问医生四个问题</h3>
+                        <div class="grid sm:grid-cols-2 gap-3">
+                            <div class="bg-white rounded-lg p-4 border border-brand-100">
+                                <div class="text-brand-600 font-bold text-lg mb-1">1</div>
+                                <p class="text-sm text-ink-900 mb-0">这项检查能降低<strong>死亡率</strong>吗？证据来自哪里？</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-4 border border-brand-100">
+                                <div class="text-brand-600 font-bold text-lg mb-1">2</div>
+                                <p class="text-sm text-ink-900 mb-0">假阳性/假阴性率多少？</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-4 border border-brand-100">
+                                <div class="text-brand-600 font-bold text-lg mb-1">3</div>
+                                <p class="text-sm text-ink-900 mb-0">阳性后下一步会做什么？</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-4 border border-brand-100">
+                                <div class="text-brand-600 font-bold text-lg mb-1">4</div>
+                                <p class="text-sm text-ink-900 mb-0">我属于"指南推荐人群"吗？</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 9 -->
+                <section id="sec-references" class="scroll-mt-24">
+                    <h2>九、参考来源</h2>
+                    <p class="text-sm text-stone-500 mb-4">以下为截至 <strong>2026 年 5 月</strong>的主要循证依据，均为国际公认指南或高质量研究。</p>
+                    <div class="bg-white rounded-xl border border-warm-200 p-6">
+                        <ul class="space-y-2 text-sm text-ink-900 list-disc pl-4">
+                            <li><strong>USPSTF Recommendation Statements</strong>（2018–2025）：Lung (2021), Colorectal
+                                (2021), Breast (April 2024), Cervical (2018), Prostate (2018), Pancreatic (2019),
+                                Ovarian (2018), Thyroid (2017), Skin (2023)</li>
+                            <li><strong>ACS Cancer Screening Guidelines</strong>（2018–2025）：Lung (2023), Colorectal
+                                (2018), Breast (2015), Cervical (2020), Prostate (2023)</li>
+                            <li><strong>NLST</strong>, <em>NEJM</em> 2011; <strong>NELSON Trial</strong>, <em>NEJM</em>
+                                2020; <strong>NordICC Trial</strong>, <em>NEJM</em> 2022</li>
+                            <li><strong>ECLIPSE Study (Shield)</strong>, <em>NEJM</em> 2024; FDA 批准 2024 年 7 月</li>
+                            <li><strong>ERSPC 21-year follow-up</strong>, 2024; <strong>PRECISION Trial</strong>,
+                                <em>NEJM</em> 2018
+                            </li>
+                            <li><strong>CISNET Modeling for USPSTF Breast 2024</strong>, <em>JAMA</em> 2024</li>
+                            <li><strong>NHS-Galleri Trial first results</strong>, <em>BMJ</em> 2024; PATHFINDER 2 ESMO
+                                2025</li>
+                            <li><strong>NCCN Clinical Practice Guidelines</strong>（2025–2026 versions）</li>
+                            <li><strong>AASLD HCC Guidance 2023</strong>; <strong>AASLD/IDSA 2025</strong> 慢性乙肝指南</li>
+                            <li><strong>WHO Guidelines for Chronic Hepatitis B</strong>, March 2024</li>
+                            <li><strong>HRSA Women's Preventive Services Guidelines Update</strong>, January 2026</li>
+                            <li><strong>UKCTOCS Long-term follow-up</strong>, <em>Lancet</em> 2021</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Final Disclaimer -->
+                <section class="mt-16 mb-8">
+                    <div class="bg-amber-50 border-2 border-amber-300 rounded-2xl p-8 text-center">
+                        <p class="text-ink-900 leading-relaxed mb-0">
+                            <strong>再次提醒：</strong>本文为科普性质，所有筛查与诊疗决策必须由<strong>具备资质的医生</strong>根据您的<strong>完整健康信息</strong>进行个体化评估。请将本指南作为<strong>与医生讨论的起点</strong>，而非自我处方的依据。
+                        </p>
+                        <p class="text-ink-900 text-sm mt-4 mb-0">文档版本：v2.0 (2026 更新版) | 编写依据：截至 2026 年 5 月的国际循证医学指南
+                        </p>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Back to Top -->
+    <button id="backToTop"
+        class="fixed bottom-6 right-6 w-12 h-12 bg-brand-600 text-white rounded-full shadow-lg hover:bg-brand-700 transition-all transform translate-y-20 opacity-0 z-50 flex items-center justify-center"
+        aria-label="回到顶部">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+    <script>
+        // Navigation items
+        const navItems = [
+            { id: 'sec-core', label: '一、核心概念与循证逻辑' },
+            { id: 'sec-risks', label: '二、筛查的获益、风险与偏倚' },
+            {
+                id: 'sec-recommended', label: '三、推荐筛查项目', children: [
+                    { id: 'sec-lung', label: '3.1 肺癌' },
+                    { id: 'sec-colorectal', label: '3.2 结直肠癌' },
+                    { id: 'sec-breast', label: '3.3 乳腺癌' },
+                    { id: 'sec-cervical', label: '3.4 宫颈癌' },
+                    { id: 'sec-prostate', label: '3.5 前列腺癌' },
+                    { id: 'sec-hcc', label: '3.6 肝细胞癌' },
+                ]
+            },
+            { id: 'sec-not-recommended', label: '四、不推荐普筛的项目' },
+            { id: 'sec-genetic', label: '五、遗传性肿瘤综合征' },
+            { id: 'sec-prevention', label: '六、一级预防' },
+            { id: 'sec-myths', label: '七、常见误区' },
+            { id: 'sec-summary', label: '八、总结与个性化路径' },
+            { id: 'sec-references', label: '九、参考来源' },
+        ];
+
+        // Build nav
+        function buildNav(containerId, isMobile) {
+            const container = document.getElementById(containerId);
+            navItems.forEach(item => {
+                const link = document.createElement('a');
+                link.href = '#' + item.id;
+                link.className = 'nav-link block py-2 px-3 rounded-lg text-sm text-ink-900 hover:bg-warm-100 transition-colors' + (isMobile ? '' : '');
+                link.textContent = item.label;
+                link.dataset.target = item.id;
+                container.appendChild(link);
+
+                if (item.children) {
+                    const subContainer = document.createElement('div');
+                    subContainer.className = 'ml-4 space-y-0.5 mt-0.5';
+                    item.children.forEach(child => {
+                        const childLink = document.createElement('a');
+                        childLink.href = '#' + child.id;
+                        childLink.className = 'nav-link block py-1.5 px-3 rounded-lg text-xs text-ink-900 hover:bg-warm-100 transition-colors';
+                        childLink.textContent = child.label;
+                        childLink.dataset.target = child.id;
+                        subContainer.appendChild(childLink);
+                    });
+                    container.appendChild(subContainer);
+                }
+            });
+        }
+
+        buildNav('desktopNav', false);
+        buildNav('mobileNav', true);
+
+        // Mobile menu
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+        closeMenuBtn.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) mobileMenu.classList.add('hidden');
+        });
+        document.querySelectorAll('#mobileNav a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // Scroll spy
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function updateActiveNav() {
+            let current = '';
+            const scrollPos = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const top = section.offsetTop;
+                if (scrollPos >= top) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.dataset.target === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+        updateActiveNav();
+
+        // Back to top
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.remove('translate-y-20', 'opacity-0');
+            } else {
+                backToTop.classList.add('translate-y-20', 'opacity-0');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+
+</html>
